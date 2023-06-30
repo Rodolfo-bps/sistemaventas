@@ -1,7 +1,8 @@
 var tabla;
 
 function init() {
-
+    mostrarelformulario(false);
+    listar();
 }
 
 function limpiar() {
@@ -51,10 +52,18 @@ function listar() {
             error: function (e) {
                 console.log(e.responseText);
             }
-        }
+        },
+
+        "bDestroy": true,
+        "iDisplayLength": 5,//paginacion
+        "order": [[0, "desc"]]//ordenar columnas
 
     }).DataTable();
 
+}
+
+function guardaryeditar(e) {
+    e.preventDefault();
 }
 
 init();
